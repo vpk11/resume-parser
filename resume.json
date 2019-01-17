@@ -1,17 +1,1 @@
-{ 
-    "personalDetails": {"name": "Vishnu Prasad K", "dob": "28th September 1994", "maritalStatus": "Single", "mobileNumber": "9645830311", "email": "vishnuemerges@gmail.com"},
-    "workExperiences": [{"experience": "1 year 7 months", "companyName": "Foradian Technologies"}],
-    "projects": [
-        {"name": "Fedena", "description": "Developed various features in the ERP application by Foradian Technologies written in Ruby On Rails​ ."},
-        {"name": "Sampoorna", "description": "Developed various features in the ERP software used by 15,000 Government schools in Kerala written in Ruby On Rails​ ."},
-        {"name": "Kerala Rescue and CM’s Distress Relief Fund", "description": "Android app written in Kotlin​ for keralarescue.in and ​ CM’s distress relief fund official website"},
-        {"name": "T-YEM HR Solution​", "description": "Android app written in ​Kotlin and backend written in ​PHP​ to handle HR related activities like payroll, work hours, attendance etc."},
-        {"name": "Mayookha2K16", "description": "Official android app written in J ​ ava​ for LBS college of Engineering Arts fest Mayookha2K16."}
-    ],
-    "technicalSkills": [{"name": "Ruby On Rails"}, {"name": "Android app development using java and kotlin"},{"name":"JavaScript"},{"name": "HTML"},{"name": "Node.js"},{"name": "React.js"},{"name": "Express.js"},{"name":"jQuery"}],
-    "education": [
-        {"institutionName": "St Annes EMHS Kottody", "yearOfPassing": "2011", "type": "Secondary"},
-        {"institutionName": "Durga Higher Secondary School", "yearOfPassing": "2013", "type": "Higher Secondary"},
-        {"institutionName": "LBS College of Engineering", "yearOfPassing": "2017", "type": "Professional Degree"}
-    ]
-}
+{"personalDetails":{"name":"Vishnu Prasad K", "dob":"28th September 1994", "maritalStatus":"Single", "mobileNumber":"9645830311", "email":"vishnuemerges@gmail.com"}, "workExperiences":[{"experience":"1 year 7 months", "companyName":"Foradian Technologies"}], "projects":[{"name":"Fedena", "description":"Developed various features in the ERP application by Foradian Technologies written in Ruby On Rails​ ."}, {"name":"Sampoorna", "description":"Developed various features in the ERP software used by 15,000 Government schools in Kerala written in Ruby On Rails​ ."}, {"name":"Kerala Rescue and CM’s Distress Relief Fund", "description":"Android app written in Kotlin​ for keralarescue.in and ​ CM’s distress relief fund official website"}, {"name":"T-YEM HR Solution​", "description":"Android app written in ​Kotlin and backend written in ​PHP​ to handle HR related activities like payroll, work hours, attendance etc."}, {"name":"Mayookha2K16", "description":"Official android app written in J ​ ava​ for LBS college of Engineering Arts fest Mayookha2K16."}], "technicalSkills":[{"name":"Ruby On Rails"}, {"name":"Android app development using java and kotlin"}, {"name":"JavaScript"}, {"name":"HTML"}, {"name":"Node.js"}, {"name":"React.js"}, {"name":"Express.js"}, {"name":"jQuery"}], "education":[{"institutionName":"St Annes EMHS Kottody", "yearOfPassing":"2011", "type":"Secondary"}, {"institutionName":"Durga Higher Secondary School", "yearOfPassing":"2013", "type":"Higher Secondary"}, {"institutionName":"LBS College of Engineering", "yearOfPassing":"2017", "type":"Professional Degree"}]}
