@@ -15,6 +15,6 @@ Install Rspec
 ```
 gem install rspec
 ```
-To run a spec using RSpec use command `rspec ./spec/filename.rb`, example: `rspec ./spec/personal_details_spec.rb`
+To run a spec use command `rspec ./spec/filename.rb`, example: `rspec ./spec/personal_details_spec.rb`
 
 To start the **Resume Parser application** use command `ruby main.rb` 
