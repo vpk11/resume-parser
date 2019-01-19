@@ -2,6 +2,7 @@
 Ruby project that parses the resume stored in resume.json file and provide basic actions like add/edit and delete details from the resume.
 
 The project uses ruby 2.5.1p57 (2018-03-29 revision 63029)
+
 For test driven development the project uses Rspec 3.8
 
 ## How to run?
