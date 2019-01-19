@@ -3,17 +3,24 @@ class PersonalDetail
     attr_accessor :name, :dob, :marital_status, :mobile_number, :email 
 
     def initialize(data)
-        @name = data.fetch("name")
-        @dob = data.fetch("dob")
-        @marital_status = data.fetch("maritalStatus")
-        @mobile_number = data.fetch("mobileNumber")
-        @email = data.fetch("email")
+        @name = data["name"] || "" 
+        @dob = data["dob"] || ""
+        @marital_status = data["maritalStatus"] || ""
+        @mobile_number = data["mobileNumber"] || ""
+        @email = data["email"] || ""
     end
 
+    #Build new object
     def self.get(data)
-        new(data)
+        (data == nil) ? init_with_empty :  new(data)
     end
 
+    #If the personalDetail section is missing from hash build with empty string
+    def init_with_empty
+        new({"name" => "", "dob" => "", "maritalStatus" => "", "mobileNumber" => "", "email" => ""})
+    end
+
+    #Displays the attribute to STDOUT
     def display
         puts "Personal Details"
         puts "  Name : #{self.name}"
@@ -23,6 +30,7 @@ class PersonalDetail
         puts "  Email : #{self.email}"
     end
 
+    #Updates the attribute
     def update(options)
         self.name = options.fetch(:name) if options[:name] != nil
         self.dob = options.fetch(:dob) if options[:dob] != nil
@@ -31,6 +39,7 @@ class PersonalDetail
         self.email = options.fetch(:email) if options[:email] != nil
     end
 
+    #Display editing options and gets value for the attributes and update the attributes
     def edit
         puts "\nSelect field to edit  in Personal Details"
         ch = "1"
@@ -59,7 +68,7 @@ class PersonalDetail
                 email = gets.chomp
                 update({:email => email}) unless email == ""
             when "6"
-                # TODO
+                
             else
                 puts "Wrong Choice"
             end

@@ -2,14 +2,20 @@ class Project
     attr_accessor :name, :description
 
     def initialize(data)
-        @name = data.fetch("name")
-        @description = data.fetch("description")
+        @name = data["name"] || ""
+        @description = data["description"] || ""
     end
 
+    #params => 
+    #  data: array of hash
+    #returns => 
+    #  array of objects of Project
     def self.get(data)
-        data.map{|project| Project.new(project)}
+        (data == nil) ? [] : data.map{|project| Project.new(project)}
     end
 
+    #params => 
+    #  projects: array of objects of Project 
     def self.display(projects)
         puts "Projects"
         projects.each do |project|
@@ -17,10 +23,15 @@ class Project
         end
     end
 
+    #Displays the current project attributes
     def display_each
         puts "  * #{self.name}: #{self.description}"
     end
 
+    #params => 
+    #  projects: array of objects of Project 
+    #returns => 
+    #  projects: updated array of objects of Project 
     def add_to(projects)
         ch = "1"
         until ch == "2" do
@@ -42,6 +53,10 @@ class Project
         projects
     end
 
+    #params => 
+    #  projects: array of objects of Project 
+    #returns => 
+    #  projects: updated array of objects of Project
     def self.delete_from(projects)
         exit = false
         until exit do

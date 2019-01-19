@@ -2,14 +2,20 @@ class WorkExperience
     attr_accessor :experience, :company_name
 
     def initialize(data)
-        @experience = data.fetch("experience")
-        @company_name = data.fetch("companyName")
+        @experience = data["experience"] || ""
+        @company_name = data["companyName"] || ""
     end
 
+    #params => 
+    #  data: array of hash
+    #returns => 
+    #  array of objects of WorkExperience
     def self.get(data)
-        data.map{|work_experience| new(work_experience)}
+        (data == nil) ? [] : data.map{|work_experience| new(work_experience)}
     end
 
+    #params => 
+    #  work_experiences: array of objects of WorkExperience 
     def self.display(work_experiences)
         puts "Work Experiences"
         work_experiences.each do |work_experience|
@@ -17,10 +23,15 @@ class WorkExperience
         end
     end
 
+    #Displays the current work experience attributes
     def display_each
         puts "  * #{self.experience} experience at #{self.company_name}"
     end
 
+    #params => 
+    #  work_experiences: array of objects of WorkExperience 
+    #returns => 
+    #  work_experiences: updated array of objects of WorkExperience 
     def self.add_to(work_experiences)
         ch = "1"
         until ch == "2" do
@@ -42,6 +53,10 @@ class WorkExperience
         work_experiences
     end
 
+    #params => 
+    #  work_experiences: array of objects of WorkExperience 
+    #returns => 
+    #  work_experiences: updated array of objects of WorkExperience 
     def self.delete_from(work_experiences)
         exit = false
         until exit do

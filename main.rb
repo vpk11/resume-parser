@@ -1,11 +1,13 @@
 require_relative('resume.rb')
 class Main
 
+    #Build resume data as hash from string of json from resume.json
     def self.build_hash_from_json
         @resume_data = @resume_data.gsub(':', '=>')
         @resume_data = eval(@resume_data)
     end
 
+    #Save modified resume data back to resume.json file
     def self.save_resume_data
         personal_details_data = {"name" => @resume.personal_details.name, "dob" => @resume.personal_details.dob, "maritalStatus" => @resume.personal_details.marital_status, "mobileNumber" => @resume.personal_details.mobile_number, "email" => @resume.personal_details.email}
         work_experiences_data = @resume.work_experiences.map{|work_experience| {"experience" => work_experience.experience, "companyName" => work_experience.company_name}}
@@ -17,6 +19,10 @@ class Main
         File.write('resume.json', data_hash)
     end
 
+    #Starting point of execution
+    #Reads the resume.json file
+    #Builds resume object from the data obtained from resume.json
+    #Saves the data back to resume.json
     def self.start
         @resume_data = File.read('resume.json')
         build_hash_from_json
@@ -26,7 +32,4 @@ class Main
     end
 
     start
-
-    private
-
 end

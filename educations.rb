@@ -2,15 +2,21 @@ class Education
     attr_accessor :institution_name, :year_of_passing, :type
 
     def initialize(data)
-        @institution_name = data.fetch("institutionName")
-        @year_of_passing = data.fetch("yearOfPassing")
-        @type = data.fetch("type")
+        @institution_name = data["institutionName"] || "" 
+        @year_of_passing = data["yearOfPassing"] || ""
+        @type = data["type"] || ""
     end
 
+    #params => 
+    #  data: array of hash
+    #returns => 
+    #  array of objects of Education
     def self.get(data)
-        data.map{|education| new(education)}
+        (data == nil) ? [] : data.map{|education| new(education)}
     end
 
+    #params => 
+    #  educations: array of objects of Education 
     def self.display(educations)
         puts "Education"
         educations.each do |education|
@@ -18,10 +24,15 @@ class Education
         end
     end
 
+    #Displays the current education attributes
     def display_each
         puts "  * #{self.institution_name} - #{self.type} \n    #{self.year_of_passing}"
     end
 
+    #params => 
+    #  educations: array of objects of Education 
+    #returns => 
+    #  educations: updated array of objects of Education
     def add_to(educations)
         ch = "1"
         until ch == "2" do
@@ -45,6 +56,10 @@ class Education
         educations
     end
 
+    #params => 
+    #  educations: array of objects of Education 
+    #returns => 
+    #  educations: updated array of objects of Education
     def self.delete_from(educations)
         exit = false
         until exit do

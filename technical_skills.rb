@@ -2,13 +2,19 @@ class TechnicalSkill
     attr_accessor :name
 
     def initialize(data)
-        @name = data.fetch("name")
+        @name = data["name"] || ""
     end
 
+    #params => 
+    #  data: array of hash
+    #returns => 
+    #  array of objects of TechnicalSkill
     def self.get(data)
-        data.map{|skill| new(skill)}
+        (data == nil) ? [] : data.map{|skill| new(skill)}
     end
 
+    #params => 
+    #  technical_skills: array of objects of TechnicalSkill 
     def self.display(technical_skills)
         puts "Technical Skills"
         technical_skills.each do |skill|
@@ -16,10 +22,16 @@ class TechnicalSkill
         end
     end
 
+    
+    #Displays the current technical skill attributes
     def display_each
         puts "  * #{self.name}"
     end
 
+    #params => 
+    #  technical_skills: array of objects of TechnicalSkill 
+    #returns => 
+    #  technical_skills: updated array of objects of TechnicalSkill
     def add_to(technical_skills)
         ch = "1"
         until ch == "2" do
@@ -39,6 +51,10 @@ class TechnicalSkill
         technical_skills
     end
 
+    #params => 
+    #  technical_skills: array of objects of TechnicalSkill 
+    #returns => 
+    #  technical_skills: updated array of objects of TechnicalSkill
     def self.delete_from(technical_skills)
         exit = false
         until exit do

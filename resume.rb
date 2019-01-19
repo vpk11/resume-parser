@@ -8,13 +8,14 @@ class Resume
     attr_accessor :personal_details, :work_experiences, :projects, :technical_skills, :educations
 
     def initialize(data)
-        @personal_details = PersonalDetail.get(data.fetch("personalDetails"))
-        @work_experiences = WorkExperience.get(data.fetch("workExperiences"))
-        @projects = Project.get(data.fetch("projects"))
-        @technical_skills = TechnicalSkill.get(data.fetch("technicalSkills"))
-        @educations = Education.get(data.fetch("education"))
+        @personal_details = PersonalDetail.get(data["personalDetails"])
+        @work_experiences = WorkExperience.get(data["workExperiences"])
+        @projects = Project.get(data["projects"])
+        @technical_skills = TechnicalSkill.get(data["technicalSkills"])
+        @educations = Education.get(data["education"])
     end
 
+    #Shows the interactive menu in STDOUT and gets user choice from STDOUT
     def show_menu
         exit = false
         until exit do
@@ -38,6 +39,7 @@ class Resume
 
     private
 
+    #Display Content of resume in STDOUT
     def print_resume
         # Personal Details
         @personal_details.display
@@ -51,6 +53,7 @@ class Resume
         Education.display(@educations)
     end
 
+    #Option for add/edit and delete a section from resume 
     def modify_resume
         choice = "1"
         until choice == "3" do
@@ -69,6 +72,7 @@ class Resume
         end
     end
 
+    #Add or edit from resume
     def add_or_edit
         puts "Select the segment to which add new details"
         c = "1"
@@ -94,6 +98,7 @@ class Resume
         end        
     end
 
+    #Shows add or edit menu printed to the STDOUT
     def add_or_edit_menu
         puts "  1 => Personal Details"
         puts "  2 => Work Experience"
@@ -103,6 +108,7 @@ class Resume
         puts "  6 => Exit"
     end
 
+    #Delete a section from resume
     def delete
         puts "Select the segment to delete new details"
         c = "1"
@@ -126,6 +132,7 @@ class Resume
         end
     end
 
+    #Shows the delete menu in STDOUT
     def delete_menu
         puts "  1 => Work Experience"
         puts "  2 => Projects"
